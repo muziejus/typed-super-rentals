@@ -11,3 +11,7 @@
 11. vi app/router.js (to change path for contact)
 12. vi app/templates/contact.hbs (to add contact text)
 13. Add <LinkTo> buttons to the three routes.
+14. Commit. ae7cf71
+15. ember g acceptance-test super-rentals
+16. vi tests/acceptance/super-rentals-test.ts
+17. 
