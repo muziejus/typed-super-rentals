@@ -1,57 +1,36 @@
 # typed-super-rentals
-
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
-
-## Prerequisites
-
-You will need the following things properly installed on your computer.
-
-* [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/)
-* [Yarn](https://yarnpkg.com/)
-* [Ember CLI](https://ember-cli.com/)
-* [Google Chrome](https://google.com/chrome/)
-
-## Installation
-
-* `git clone <repository-url>` this repository
-* `cd typed-super-rentals`
-* `yarn install`
-
-## Running / Development
-
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Linting
-
-* `yarn lint`
-* `yarn lint:fix`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+ 
+2. ember new typed-super-rentals --yarn  
+3. cd typed-super-rentals
+4. ember i ember-cli-typescript@latest
+5. vi app/templates/application.hbs (to remove WelcomePage)
+6. vi app/templates/index.hbs (to add boilerplate text)
+7. Copy in app.css and teaching-tomster.png
+8. Commit. 53ae858
+9. ember g route about
+10. vi app/templates/about.hbs (to add about text)
+11. ember g route contact
+12. vi app/router.js (to change path for contact)
+13. vi app/templates/contact.hbs (to add contact text)
+14. Add <LinkTo> buttons to the three routes.
+15. Commit. ae7cf71
+16. ember g acceptance-test super-rentals
+17. vi tests/acceptance/super-rentals-test.ts
+18. Commit. 2ff050a
+19. ember g component jumbo
+  * The blueprint creates a component class
+  * The blueprint also places the template in app/templates/components/jumbo.hbs
+20. Fix up ember-cli-typescript-blueprints and `yarn link` to my local copy.
+21. ember g component jumbo
+22. Edit jumbo test
+23. ember g component nav-bar
+24. Edit acceptance test
+25. Move NavBar to application template
+26. Commit. ab3f23c
+27. ember g component rental
+28. Edit Rental test
+29. ember g component rental/image
+30. add Rental::Image to Rental
+31. Edit Rental::Image and Rental tests
+32. Move this text to README.
+33. 
