@@ -14,4 +14,10 @@
 14. Commit. ae7cf71
 15. ember g acceptance-test super-rentals
 16. vi tests/acceptance/super-rentals-test.ts
-17. 
+17. Commit. 2ff050a
+18. ember g component jumbo
+  * The blueprint creates a component class
+  * The blueprint also places the template in app/templates/components/jumbo.hbs
+19. Fix up ember-cli-typescript-blueprints and `yarn link` to my local copy.
+20. ember g component jumbo
+21. 
