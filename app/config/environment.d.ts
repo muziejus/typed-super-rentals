@@ -5,6 +5,7 @@ export default config;
  *    import config from 'my-app/config/environment'
  */
 declare const config: {
+  MAPBOX_ACCESS_TOKEN: string;
   environment: string;
   modulePrefix: string;
   podModulePrefix: string;
