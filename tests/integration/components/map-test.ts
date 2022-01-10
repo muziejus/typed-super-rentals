@@ -36,10 +36,6 @@ module('Integration | Component | map', function(hooks) {
     let img = find('.map img');
     let src = findImgSrc(img);
 
-    if (img instanceof HTMLImageElement) {
-      src = img.src;
-    }
-
     let token = encodeURIComponent(ENV.MAPBOX_ACCESS_TOKEN);
 
     assert.ok(
@@ -81,48 +77,49 @@ module('Integration | Component | map', function(hooks) {
     />`);
 
     let img = find('.map img');
-    let src = findImgSrc(img);
 
-    assert.ok(
-      src.includes('-122.4194,37.7749,10'),
-      'the src should include the lng,lat,zoom parameter'
-    );
+    if (img instanceof HTMLImageElement) {
+      assert.ok(
+        img.src.includes('-122.4194,37.7749,10'),
+        'the img.src should include the lng,lat,zoom parameter'
+      );
 
-    assert.ok(
-      src.includes('150x120@2x'),
-      'the src should include the width,height and @2x parameter'
-    );
+      assert.ok(
+        img.src.includes('150x120@2x'),
+        'the img.src should include the width,height and @2x parameter'
+      );
 
-    this.setProperties({
-      width: 300,
-      height: 200,
-      zoom: 12,
-    });
+      this.setProperties({
+        width: 300,
+        height: 200,
+        zoom: 12,
+      });
 
-    assert.ok(
-      src.includes('-122.4194,37.7749,12'),
-      'the src should include the lng,lat,zoom parameter'
-    );
+      assert.ok(
+        img.src.includes('-122.4194,37.7749,12'),
+        'the img.src should include the lng,lat,zoom parameter'
+      );
 
-    assert.ok(
-      src.includes('300x200@2x'),
-      'the src should include the width,height and @2x parameter'
-    );
+      assert.ok(
+        img.src.includes('300x200@2x'),
+        'the img.src should include the width,height and @2x parameter'
+      );
 
-    this.setProperties({
-      lat: 47.6062,
-      lng: -122.3321,
-    });
+      this.setProperties({
+        lat: 47.6062,
+        lng: -122.3321,
+      });
 
-    assert.ok(
-      src.includes('-122.3321,47.6062,12'),
-      'the src should include the lng,lat,zoom parameter'
-    );
+      assert.ok(
+        img.src.includes('-122.3321,47.6062,12'),
+        'the img.src should include the lng,lat,zoom parameter'
+      );
 
-    assert.ok(
-      src.includes('300x200@2x'),
-      'the src should include the width,height and @2x parameter'
-    );
+      assert.ok(
+        img.src.includes('300x200@2x'),
+        'the img.src should include the width,height and @2x parameter'
+      );
+    }
   });
 
   test('the default alt attribute can be overridden', async function(assert) {

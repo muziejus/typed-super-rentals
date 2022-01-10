@@ -68,7 +68,7 @@
 39. `ember generate component map --with-component-class`
 40. Define MapComponentArgs in app/components/map.ts
 41. Fill out map component and accompanying test.
-42. Run into TS errors regarding `src` as a member of `Element | null`
+  *  Run into TS errors regarding `src` as a member of `Element | null`
 43. Ignore the TS errors with @ts-ignore
 44. Commit. 9c4c687
 
@@ -81,7 +81,7 @@
 48. Download data files and put them in public/
 49. Change Index route to fetch data.
 50. Add `{{#each}}` to Index template.
-51. Commit 95661ef
+51. Commit b0e54c6
 
 ## Part II
 
@@ -110,9 +110,24 @@
   * requires changing TestContext to add `tweetParam`
   * requires a type check on `find`.
 66. Go back and add typechecks for `img` in Map component tests.
-66. Commit. 7b55a49
+66. Commit. 80b7eb0
 
 ### Ember Data
+
+67. `ember g model rental`
+68. Add types for all model attributes. Strings by default.
+69. Add rental.type check in rental model test
+70. Change routes to use Store.
+71. `ember g adapter application`
+71. `ember g serializer application`
+71. Edit adapter and serializer
+  * adapter's `.buildURL()` doesn't have public types for its args.
+72. Apparently the typechecks in Map component were failing. Create a very hacky if statement
+73. Commit. 
+
+### Provider Components
+
+
 
 
 
