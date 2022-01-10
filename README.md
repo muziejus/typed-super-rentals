@@ -97,8 +97,22 @@
 57. `ember g component rental/detailed`
 58. Add rental/detailed to Rental route
 59. Add Rental route checks to acceptance test.
-
+60. Commit. 2a4f453
 
 ### Service Injection
+
+61. `ember generate component share-button --with-component-class`
+62. Fill out ShareButton template and class.
+63. Add ShareButton to Rental::Detailed
+64. Adjust acceptance test, which requires adding RouterService
+  * to set `url` searchParam, must use `toString()`
+65. Enhance ShareButton test
+  * requires changing TestContext to add `tweetParam`
+  * requires a type check on `find`.
+66. Go back and add typechecks for `img` in Map component tests.
+66. Commit. 7b55a49
+
+### Ember Data
+
 
 

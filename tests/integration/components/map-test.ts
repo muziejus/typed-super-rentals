@@ -4,10 +4,19 @@ import { render, find } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import ENV from 'typed-super-rentals/config/environment';
 
-module('Integration | Component | map', function (hooks) {
+function findImgSrc(element: Element | null): string {
+  let src = '';
+  if (element instanceof HTMLImageElement) {
+    src = element.src;
+  }
+
+  return src;
+}
+
+module('Integration | Component | map', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders a map image for the specified parameters', async function (assert) {
+  test('it renders a map image for the specified parameters', async function(assert) {
     await render(hbs`<Map
       @lat="37.7797"
       @lng="-122.4184"
@@ -24,9 +33,13 @@ module('Integration | Component | map', function (hooks) {
       .hasAttribute('width', '150')
       .hasAttribute('height', '120');
 
-    // Property 'src' does not exist on type Element | null
-    // @ts-ignore
-    let { src } = find('.map img');
+    let img = find('.map img');
+    let src = findImgSrc(img);
+
+    if (img instanceof HTMLImageElement) {
+      src = img.src;
+    }
+
     let token = encodeURIComponent(ENV.MAPBOX_ACCESS_TOKEN);
 
     assert.ok(
@@ -50,7 +63,7 @@ module('Integration | Component | map', function (hooks) {
     );
   });
 
-  test('it updates the `src` attribute when the arguments change', async function (assert) {
+  test('it updates the `src` attribute when the arguments change', async function(assert) {
     this.setProperties({
       lat: 37.7749,
       lng: -122.4194,
@@ -68,16 +81,15 @@ module('Integration | Component | map', function (hooks) {
     />`);
 
     let img = find('.map img');
+    let src = findImgSrc(img);
 
     assert.ok(
-      // @ts-ignore
-      img.src.includes('-122.4194,37.7749,10'),
+      src.includes('-122.4194,37.7749,10'),
       'the src should include the lng,lat,zoom parameter'
     );
 
     assert.ok(
-      // @ts-ignore
-      img.src.includes('150x120@2x'),
+      src.includes('150x120@2x'),
       'the src should include the width,height and @2x parameter'
     );
 
@@ -88,14 +100,12 @@ module('Integration | Component | map', function (hooks) {
     });
 
     assert.ok(
-      // @ts-ignore
-      img.src.includes('-122.4194,37.7749,12'),
+      src.includes('-122.4194,37.7749,12'),
       'the src should include the lng,lat,zoom parameter'
     );
 
     assert.ok(
-      // @ts-ignore
-      img.src.includes('300x200@2x'),
+      src.includes('300x200@2x'),
       'the src should include the width,height and @2x parameter'
     );
 
@@ -105,19 +115,17 @@ module('Integration | Component | map', function (hooks) {
     });
 
     assert.ok(
-      // @ts-ignore
-      img.src.includes('-122.3321,47.6062,12'),
+      src.includes('-122.3321,47.6062,12'),
       'the src should include the lng,lat,zoom parameter'
     );
 
     assert.ok(
-      // @ts-ignore
-      img.src.includes('300x200@2x'),
+      src.includes('300x200@2x'),
       'the src should include the width,height and @2x parameter'
     );
   });
 
-  test('the default alt attribute can be overridden', async function (assert) {
+  test('the default alt attribute can be overridden', async function(assert) {
     await render(hbs`<Map
       @lat="37.7797"
       @lng="-122.4184"
@@ -130,7 +138,7 @@ module('Integration | Component | map', function (hooks) {
     assert.dom('.map img').hasAttribute('alt', 'A map of San Francisco');
   });
 
-  test('the src, width and height attributes cannot be overridden', async function (assert) {
+  test('the src, width and height attributes cannot be overridden', async function(assert) {
     await render(hbs`<Map
       @lat="37.7797"
       @lng="-122.4184"
