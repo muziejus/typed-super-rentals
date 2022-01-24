@@ -123,9 +123,26 @@
 71. Edit adapter and serializer
   * adapter's `.buildURL()` doesn't have public types for its args.
 72. Apparently the typechecks in Map component were failing. Create a very hacky if statement
-73. Commit. 
+73. Commit. 52. ember g route rental
+53. Adjust path of Rental route.
+54. Add <LinkTo> to Rental component
+55. Add id property to Index route model hook
+56. Add model hook to Rental route.
+  • Need to add interface for RentalRouteParams
+56. Adjust Rental component test.
+57. ember g component rental/detailed
+58. Add rental/detailed to Rental route
+59. Add Rental route checks to acceptance test.
+60. Commit. 5f8ace2 
 
 ### Provider Components
+
+61. Add input to index template.
+62. `ember g component rentals --with-component-class`
+63. Fill out Rentals component and test.
+64. `ember g component rentals/filter --with-component-class`
+
+
 
 
 

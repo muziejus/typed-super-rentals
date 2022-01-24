@@ -13,10 +13,10 @@ function findImgSrc(element: Element | null): string {
   return src;
 }
 
-module('Integration | Component | map', function(hooks) {
+module('Integration | Component | map', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders a map image for the specified parameters', async function(assert) {
+  test('it renders a map image for the specified parameters', async function (assert) {
     await render(hbs`<Map
       @lat="37.7797"
       @lng="-122.4184"
@@ -59,7 +59,7 @@ module('Integration | Component | map', function(hooks) {
     );
   });
 
-  test('it updates the `src` attribute when the arguments change', async function(assert) {
+  test('it updates the `src` attribute when the arguments change', async function (assert) {
     this.setProperties({
       lat: 37.7749,
       lng: -122.4194,
@@ -122,7 +122,7 @@ module('Integration | Component | map', function(hooks) {
     }
   });
 
-  test('the default alt attribute can be overridden', async function(assert) {
+  test('the default alt attribute can be overridden', async function (assert) {
     await render(hbs`<Map
       @lat="37.7797"
       @lng="-122.4184"
@@ -135,7 +135,7 @@ module('Integration | Component | map', function(hooks) {
     assert.dom('.map img').hasAttribute('alt', 'A map of San Francisco');
   });
 
-  test('the src, width and height attributes cannot be overridden', async function(assert) {
+  test('the src, width and height attributes cannot be overridden', async function (assert) {
     await render(hbs`<Map
       @lat="37.7797"
       @lng="-122.4184"
